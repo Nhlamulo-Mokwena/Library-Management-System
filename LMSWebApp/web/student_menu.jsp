@@ -89,7 +89,7 @@
             <h1 class="card-title">Student Login</h1>
             <p class="card-text">Enter the following details:</p>
 
-            <form action="StudentLoginServlet" method="POST">
+            <form action="StudentsLoginServlet" method="POST">
                 <input type="text" name="username" class="form-control" placeholder="Username" required>
                 <input type="password" name="password" class="form-control" placeholder="Password" required>
                 <button type="submit" class="btn btn-custom">

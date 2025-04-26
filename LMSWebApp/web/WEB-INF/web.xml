@@ -5,16 +5,16 @@
         <servlet-class>controllers.AdminLoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>StudentLoginServlet</servlet-name>
-        <servlet-class>controllers.StudentLoginServlet</servlet-class>
+        <servlet-name>StudentsLoginServlet</servlet-name>
+        <servlet-class>controllers.StudentsLoginServlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>StudentLoginServlet</servlet-name>
-        <url-pattern>/StudentLoginServlet</url-pattern>
+        <servlet-name>StudentsLoginServlet</servlet-name>
+        <url-pattern>/StudentsLoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

@@ -5,8 +5,12 @@
  */
 package controllers;
 
+import entities.Students;
+import entities.bl.StudentsFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.ejb.EJB;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author User
  */
-public class StudentLoginServlet extends HttpServlet {
+public class StudentsLoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +40,10 @@ public class StudentLoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet StudentLoginServlet</title>");            
+            out.println("<title>Servlet StudentsLoginServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet StudentLoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet StudentsLoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -68,20 +72,27 @@ public class StudentLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @EJB
+    StudentsFacadeLocal sfl;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String botUsername = getServletContext().getInitParameter("student_username");
-        String username = request.getParameter("username");
-        String botPassword = getServletContext().getInitParameter("student_password");
+           String username = request.getParameter("username");
         String password = request.getParameter("password");
+        boolean found = false;
+
+        List<Students> students = sfl.findAll();
+        for(Students cc: students) {
+            if(cc.getUsername().equals(username) && cc.getPassword().equals(password)) {
+                found = true;
+                break; 
+            } 
+        }
         
-        if(botUsername.equals(username) && botPassword.equals(password)) {
-            
+        if(found == true) {
             RequestDispatcher disp = request.getRequestDispatcher("student_home.jsp");
-            disp.forward(request, response);
-            
-        } else {
+                disp.forward(request, response);
+        }else {
             response.sendRedirect("error.jsp");
         }
     }
