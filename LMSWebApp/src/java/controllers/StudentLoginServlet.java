@@ -15,9 +15,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Nhlamulo_M
+ * @author User
  */
-public class AdminLoginServlet extends HttpServlet {
+public class StudentLoginServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +36,10 @@ public class AdminLoginServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdminLoginServlet</title>");            
+            out.println("<title>Servlet StudentLoginServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet AdminLoginServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet StudentLoginServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -71,14 +71,14 @@ public class AdminLoginServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String botUsername = getServletContext().getInitParameter("admin_username");
+        String botUsername = getServletContext().getInitParameter("student_username");
         String username = request.getParameter("username");
-        String botPassword = getServletContext().getInitParameter("admin_password");
+        String botPassword = getServletContext().getInitParameter("student_password");
         String password = request.getParameter("password");
         
         if(botUsername.equals(username) && botPassword.equals(password)) {
             
-            RequestDispatcher disp = request.getRequestDispatcher("admin_home.jsp");
+            RequestDispatcher disp = request.getRequestDispatcher("student_home.jsp");
             disp.forward(request, response);
             
         } else {
