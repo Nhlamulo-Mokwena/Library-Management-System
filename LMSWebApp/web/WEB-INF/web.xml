@@ -4,13 +4,37 @@
         <servlet-name>AdminLoginServlet</servlet-name>
         <servlet-class>controllers.AdminLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentLoginServlet</servlet-name>
+        <servlet-class>controllers.StudentLoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentLoginServlet</servlet-name>
+        <url-pattern>/StudentLoginServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
+    <context-param>
+        <param-name>admin_username</param-name>
+        <param-value>admin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>admin_password</param-name>
+        <param-value>admin@tut</param-value>
+    </context-param>
+    <context-param>
+        <param-name>student_username</param-name>
+        <param-value>student</param-value>
+    </context-param>
+    <context-param>
+        <param-name>student_password</param-name>
+        <param-value>stud@tut</param-value>
+    </context-param>
 </web-app>
