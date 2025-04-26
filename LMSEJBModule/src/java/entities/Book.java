@@ -17,15 +17,40 @@ import javax.persistence.Id;
  * @author Nhlamulo_M
  */
 @Entity
-public class Student implements Serializable {
+public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @Column(name = "student_no", nullable = false)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ISBN", nullable = false)
     private Long id;
     
     private String name;
-    private String  surname;
+    private String category;
+
+    public Book() {
+    }
+
+    public Book( String name, String category) {
+        this.name = name;
+        this.category = category;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
 
     public Long getId() {
         return id;
@@ -45,10 +70,10 @@ public class Student implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Student)) {
+        if (!(object instanceof Book)) {
             return false;
         }
-        Student other = (Student) object;
+        Book other = (Book) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -57,7 +82,7 @@ public class Student implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Student[ id=" + id + " ]";
+        return "entities.Book[ id=" + id + " ]";
     }
     
 }
