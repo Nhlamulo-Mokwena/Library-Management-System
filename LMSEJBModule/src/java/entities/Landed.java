@@ -18,12 +18,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  *
  * @author Nhlamulo_M
  */
 @Entity
+@Table(name = "LANDED")
 public class Landed implements Serializable {
 
     private static final long serialVersionUID = 1L;

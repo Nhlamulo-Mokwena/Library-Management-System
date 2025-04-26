@@ -9,9 +9,14 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Admin Home Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Welcome Admin:</h1>
+        <ol>
+            <li><a href="add_book.jsp">Add Books</a></li>
+            <li><a href="remove_book.jsp">Remove A Book</a></li>
+            <li><a href="view_all_books.jsp">View All Books</a></li>
+        </ol>
     </body>
 </html>
