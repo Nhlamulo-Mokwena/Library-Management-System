@@ -86,7 +86,7 @@
 
     <div class="admin-container">
         <i class="fas fa-user-shield admin-icon"></i>
-        <h1>Welcome Admin</h1>
+        <h1>Welcome Admin </h1>
         <ol>
             <li><a href="add_book.jsp"><i class="fas fa-plus"></i> Add Books</a></li>
             <li><a href="remove_book.jsp"><i class="fas fa-trash"></i> Remove A Book</a></li>
