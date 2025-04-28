@@ -1,37 +1,107 @@
-<%-- 
-    Document   : request_book_outcome
-    Created on : Apr 28, 2025, 6:25:31 PM
-    Author     : Nhlamulo_M
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Student Book Request Outcome Page</title>
-    </head>
-    <body>
-        <h1>Student Book Request Outcome</h1>
-        <%
-            Long studNo = (Long)request.getAttribute("stud_no");
-            String name = (String)request.getAttribute("name");
-            String surname = (String)request.getAttribute("surname");
-            String book1 = (String)request.getAttribute("book1");
-            String book2 = (String)request.getAttribute("book2");
-        %>
-        <p>
-            Student number: <b><%=studNo%></b><br>
-            Name: <b><%=name%></b><br>
-            Surname: <%=surname%><br>
-            Book 1: <%=book1%><br>
-            Book 2: <%=book2%>
-        </p>
-        <p>
-            Your request was successful.
-        </p>
-        <p>
-            Click <a href="menu.jsp">here</a> to logout
-        </p>
-    </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Book Request Outcome</title>
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <style>
+        body {
+            background: linear-gradient(135deg, #00c6ff 0%, #0072ff 100%);
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Poppins', sans-serif;
+            padding: 20px;
+            overflow: auto;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            color: #ffffff;
+        }
+        .card-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .details {
+            text-align: left;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+        .btn-custom {
+            background-color: #ffffff;
+            color: #0072ff;
+            border-radius: 30px;
+            padding: 10px 30px;
+            font-weight: bold;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+        .btn-custom:hover {
+            background-color: #0072ff;
+            color: #ffffff;
+            transform: scale(1.05);
+        }
+        .icon {
+            font-size: 60px;
+            color: #ffffff;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="card shadow-lg">
+            <i class="fas fa-check-circle icon"></i>
+            <h1 class="card-title">Request Successful!</h1>
+
+            <%
+                Long studNo = (Long)request.getAttribute("stud_no");
+                String name = (String)request.getAttribute("name");
+                String surname = (String)request.getAttribute("surname");
+                String book1 = (String)request.getAttribute("book1");
+                String book2 = (String)request.getAttribute("book2");
+            %>
+
+            <div class="details">
+                <p><strong>Student Number:</strong> <%=studNo%></p>
+                <p><strong>Name:</strong> <%=name%></p>
+                <p><strong>Surname:</strong> <%=surname%></p>
+                <p><strong>Book 1:</strong> <%=book1%></p>
+                <p><strong>Book 2:</strong> <%=book2%></p>
+            </div>
+
+            <a href="menu.jsp" class="btn btn-custom">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </a>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
 </html>
