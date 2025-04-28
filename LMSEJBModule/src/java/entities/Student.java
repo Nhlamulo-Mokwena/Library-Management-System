@@ -10,15 +10,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
 
 /**
  *
- * @author User
+ * @author Nhlamulo_M
  */
 @Entity
-@Table(name = "STUDENTS_TBL")
-public class Students implements Serializable {
+public class Student implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
@@ -27,11 +25,10 @@ public class Students implements Serializable {
     private String username;
     private String password;
 
-    public Students() {
+    public Student() {
     }
 
-    public Students(Long id, String username, String password) {
-        this.id = id;
+    public Student(String username, String password) {
         this.username = username;
         this.password = password;
     }
@@ -51,6 +48,8 @@ public class Students implements Serializable {
     public void setPassword(String password) {
         this.password = password;
     }
+    
+    
 
     public Long getId() {
         return id;
@@ -70,10 +69,10 @@ public class Students implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Students)) {
+        if (!(object instanceof Student)) {
             return false;
         }
-        Students other = (Students) object;
+        Student other = (Student) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -82,7 +81,7 @@ public class Students implements Serializable {
 
     @Override
     public String toString() {
-        return "entities.Students[ id=" + id + " ]";
+        return "entities.Student[ id=" + id + " ]";
     }
     
 }

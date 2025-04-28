@@ -5,28 +5,28 @@
  */
 package entities.bl;
 
-import entities.Students;
+import entities.Student;
 import java.util.List;
 import javax.ejb.Local;
 
 /**
  *
- * @author User
+ * @author Nhlamulo_M
  */
 @Local
-public interface StudentsFacadeLocal {
+public interface StudentFacadeLocal {
 
-    void create(Students students);
+    void create(Student student);
 
-    void edit(Students students);
+    void edit(Student student);
 
-    void remove(Students students);
+    void remove(Student student);
 
-    Students find(Object id);
+    Student find(Object id);
 
-    List<Students> findAll();
+    List<Student> findAll();
 
-    List<Students> findRange(int[] range);
+    List<Student> findRange(int[] range);
 
     int count();
     

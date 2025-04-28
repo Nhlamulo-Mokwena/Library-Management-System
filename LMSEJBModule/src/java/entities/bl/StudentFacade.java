@@ -5,17 +5,17 @@
  */
 package entities.bl;
 
-import entities.Students;
+import entities.Student;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 /**
  *
- * @author User
+ * @author Nhlamulo_M
  */
 @Stateless
-public class StudentsFacade extends AbstractFacade<Students> implements StudentsFacadeLocal {
+public class StudentFacade extends AbstractFacade<Student> implements StudentFacadeLocal {
 
     @PersistenceContext(unitName = "LMSEJBModulePU")
     private EntityManager em;
@@ -25,8 +25,8 @@ public class StudentsFacade extends AbstractFacade<Students> implements Students
         return em;
     }
 
-    public StudentsFacade() {
-        super(Students.class);
+    public StudentFacade() {
+        super(Student.class);
     }
     
 }

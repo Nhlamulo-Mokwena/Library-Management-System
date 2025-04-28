@@ -5,6 +5,8 @@
  */
 package controllers;
 
+import entities.BookShelf;
+import entities.bl.BookShelfFacadeLocal;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -17,9 +19,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author User
+ * @author Nhlamulo_M
  */
-public class StudentsLoginServlet extends HttpServlet {
+public class StudentViewBooks extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -32,19 +34,7 @@ public class StudentsLoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet StudentsLoginServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet StudentsLoginServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -56,10 +46,18 @@ public class StudentsLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
+    @EJB private BookShelfFacadeLocal bsfl;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         processRequest(request, response);
+        
+        List<BookShelf> list = bsfl.findAll();
+        
+        request.setAttribute("list", list);
+        
+        RequestDispatcher disp = request.getRequestDispatcher("view_available_books.jsp");
+        disp.forward(request, response);
     }
 
     /**
@@ -70,46 +68,10 @@ public class StudentsLoginServlet extends HttpServlet {
      * @throws ServletException if a servlet-specific error occurs
      * @throws IOException if an I/O error occurs
      */
-    
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-           String username = request.getParameter("username");
-           String password = request.getParameter("password");
-       
-           String correctUN = getServletContext().getInitParameter("student_username");
-           String correctPW = getServletContext().getInitParameter("student_password");
-           
-           boolean isCorrect = false;
-           
-           if(username.equals(correctUN) && password.equals(correctPW)){
-             isCorrect = true;
-           }
-           
-           if(isCorrect){
-               RequestDispatcher disp = request.getRequestDispatcher("student_home.jsp");
-               disp.forward(request, response);
-           }
-           else{
-               response.sendRedirect("error.jsp");
-           }
-        
-        
-//
-//        List<Students> students = sfl.findAll();
-//        for(Students cc: students) {
-//            if(cc.getUsername().equals(username) && cc.getPassword().equals(password)) {
-//                found = true;
-//                break; 
-//            } 
-//        }
-//        
-//        if(found == true) {
-//            RequestDispatcher disp = request.getRequestDispatcher("student_home.jsp");
-//                disp.forward(request, response);
-//        }else {
-//            response.sendRedirect("error.jsp");
-//        }
+        processRequest(request, response);
     }
 
     /**

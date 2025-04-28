@@ -36,28 +36,34 @@ public class Landed implements Serializable {
     private String name;
     private String  surname;
     
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY,orphanRemoval = true)
-    @JoinTable(name = "student_book_tbl",
-            joinColumns = @JoinColumn(name = "landed_fk"),
-            inverseJoinColumns = @JoinColumn(name = "book_fk"))
-    private List<Book> books;
+    private Long book_one_isbn;
+    private Long book_two_isbn;
 
     public Landed() {
     }
 
-    public Landed(Long id, String name, String surname, List<Book> books) {
+    public Landed(Long id, String name, String surname, Long book_one_isbn, Long book_two_isbn) {
         this.id = id;
         this.name = name;
         this.surname = surname;
-        this.books = books;
+        this.book_one_isbn = book_one_isbn;
+        this.book_two_isbn = book_two_isbn;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public Long getBook_one_isbn() {
+        return book_one_isbn;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setBook_one_isbn(Long book_one_isbn) {
+        this.book_one_isbn = book_one_isbn;
+    }
+
+    public Long getBook_two_isbn() {
+        return book_two_isbn;
+    }
+
+    public void setBook_two_isbn(Long book_two_isbn) {
+        this.book_two_isbn = book_two_isbn;
     }
 
     public String getName() {

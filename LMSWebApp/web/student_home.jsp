@@ -81,7 +81,7 @@
     <div class="student-container">
         <i class="fas fa-user-graduate student-icon"></i>
         <h1>Welcome Student!</h1>
-        <a href="view_available_books.jsp" class="btn-custom">
+        <a href="StudentViewBooks" class="btn-custom">
             <i class="fas fa-book-open"></i> View Books
         </a>
     </div>

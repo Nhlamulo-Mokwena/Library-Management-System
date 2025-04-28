@@ -8,6 +8,14 @@
         <servlet-name>StudentsLoginServlet</servlet-name>
         <servlet-class>controllers.StudentsLoginServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>StudentViewBooks</servlet-name>
+        <servlet-class>controllers.StudentViewBooks</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>RequestBooksServlet</servlet-name>
+        <servlet-class>controllers.RequestBooksServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AdminLoginServlet</servlet-name>
         <url-pattern>/AdminLoginServlet</url-pattern>
@@ -15,6 +23,14 @@
     <servlet-mapping>
         <servlet-name>StudentsLoginServlet</servlet-name>
         <url-pattern>/StudentsLoginServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>StudentViewBooks</servlet-name>
+        <url-pattern>/StudentViewBooks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>RequestBooksServlet</servlet-name>
+        <url-pattern>/RequestBooksServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
