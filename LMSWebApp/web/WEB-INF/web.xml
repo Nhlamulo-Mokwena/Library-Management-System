@@ -53,4 +53,8 @@
         <param-name>student_password</param-name>
         <param-value>stud@tut</param-value>
     </context-param>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error.jsp</location>
+    </error-page>
 </web-app>
