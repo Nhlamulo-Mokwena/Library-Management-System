@@ -45,6 +45,7 @@ public class RemoveBookServlet extends HttpServlet {
         
         if (book != null) {
         // Get all bookshelves
+        
         java.util.List<entities.BookShelf> shelves = bookShelfFacadeLocal.findAll();
 
         for (int i = 0; i < shelves.size(); i++) {
