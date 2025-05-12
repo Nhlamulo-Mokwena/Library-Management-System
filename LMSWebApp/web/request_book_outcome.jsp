@@ -99,6 +99,20 @@
             </a>
         </div>
     </div>
+                <div style="margin-top: 20px;">
+    <form action="request_books.jsp" method="get">
+        <button type="submit" style="
+            background-color: #2c3e50;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            border: none;
+            font-size: 14px;
+            cursor: pointer;">
+            ← Back
+        </button>
+    </form>
+</div>
 
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
